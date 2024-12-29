@@ -86,12 +86,12 @@ TaskDown content MAY be stored in:
 
 When embedded in Markdown, TaskDown content MUST be wrapped in a code block with the 'taskdown' identifier:
 
-    ```taskdown
-    tasks:
-      TASK-1:
-        title: "Example task"
-        status: "pending"
-    ```
+```taskdown
+tasks:
+  TASK-1:
+    title: "Example task"
+    status: "pending"
+```
 
 ## 4. Processing Requirements
 
