@@ -13,7 +13,52 @@ tasks:
   TOOLS-1:
     title: "A Typescript Implementation Basic Validator"
     status: "in_progress"
-    description: "Create simple YAML validator for core format requirements"
+    description: |
+      Create a framework-agnostic TypeScript library for validating Taskdown format.
+
+      Core Requirements:
+      1. Input Handling
+         - Accept both YAML strings and parsed objects
+         - Handle both standalone Taskdown and markdown-embedded blocks
+         - Stream parsing for large files
+
+      2. Validation Levels
+         - Syntax (valid YAML)
+         - Schema (required fields, types)
+         - Semantics (task IDs, relationships)
+         - Custom rules support
+
+      3. Error Reporting
+         - Precise error locations (line, column)
+         - Detailed error messages
+         - Error categorization
+         - Suggestion for fixes
+
+      4. API Design
+         - Async validation support
+         - Rule configuration
+         - Extensible validation rules
+         - Observable validation progress
+
+      5. Output Format
+         - Location info for editor integration
+         - Severity levels (error/warning)
+         - Machine-readable error codes
+         - Human-readable messages
+
+      Success Criteria:
+      - Zero external runtime dependencies (except YAML parser)
+      - Fully typed API
+      - 100% test coverage
+      - Browser and Node.js compatible
+      - Performance benchmarks for large files
+      - Documentation with examples
+
+      Distribution:
+      - Published on npm
+      - ESM and CommonJS builds
+      - TypeScript types included
+      - Minified browser bundle"
 
   IMPL-3:
     title: "A python Implementation Basic Validator"
