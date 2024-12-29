@@ -168,7 +168,7 @@ relationships:
     blocked_by: ["IMPL-2"]  # We need package setup before we can implement converters
   IMPL-2:
     part_of: "DEV-1"
-    blocks: ["IMPL-1"]  # Package setup must be done first
+    blocks: ["IMPL-1", "IMPL-3"]  # Package setup must be done first
   DEV-1:
     blocks: ["TOOLS-2"]
     subtasks: ["IMPL-1", "IMPL-2"]
