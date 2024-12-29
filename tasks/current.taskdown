@@ -15,6 +15,28 @@ tasks:
     status: "pending"
     description: "Create simple YAML validator for core format requirements"
 
+  IMPL-1:
+    title: "Implement GitHub converter"
+    status: "pending"
+    type: "task"
+    description: |
+      Create GitHub issue converter following project structure.
+
+      References:
+      - Implementation structure: ../docs/guides/project-structure.md#typescript-implementation
+      - Overall converters location: ../docs/guides/project-structure.md#implementations-implementations
+
+  IMPL-2:
+    title: "Add Python package setup"
+    status: "in_progress"
+    type: "task"
+    description: |
+      Set up Python package structure with proper configuration.
+
+      References:
+      - Python structure: ../docs/guides/project-structure.md#python-implementation
+      - Package files location: ../docs/guides/project-structure.md#core-components
+
   UI-2:
     title: "Create Live Editor Prototype"
     status: "pending"
@@ -102,7 +124,14 @@ relationships:
     blocks: ["UI-1", "TOOLS-2"]
   UI-1:
     blocks: ["APP-1"]
+  IMPL-1:
+    part_of: "DEV-1"
+    blocked_by: ["IMPL-2"]  # We need package setup before we can implement converters
+  IMPL-2:
+    part_of: "DEV-1"
+    blocks: ["IMPL-1"]  # Package setup must be done first
   DEV-1:
     blocks: ["TOOLS-2"]
+    subtasks: ["IMPL-1", "IMPL-2"]
   UI-2:
     blocks: ["APP-2"]
