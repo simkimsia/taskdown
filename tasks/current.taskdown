@@ -1,0 +1,108 @@
+tasks:
+  # Phase 1 - Easiest (Days)
+  CORE-1:
+    title: "Setup GitHub Repository"
+    status: "done"
+    description: "Create main repository with basic structure and documentation"
+
+  SPEC-1:
+    title: "Draft Core Format Specification"
+    status: "done"
+    description: "Write initial specification for the minimal viable format"
+
+  TOOLS-1:
+    title: "Implement Basic Validator"
+    status: "pending"
+    description: "Create simple YAML validator for core format requirements"
+
+  UI-2:
+    title: "Create Live Editor Prototype"
+    status: "pending"
+    description: "Basic web-based editor with YAML validation and preview"
+
+  # Phase 2 - Moderate (Weeks)
+  DEV-1:
+    title: "Build Python Reference Implementation"
+    status: "pending"
+    description: "Core library for parsing and manipulating TaskDown format"
+
+  DEV-2:
+    title: "Develop JavaScript SDK"
+    status: "pending"
+    description: "Core library for web-based implementations"
+
+  SPEC-2:
+    title: "Create JSON Schema"
+    status: "done"
+    description: "Formal schema definition for validation tools"
+
+  UI-1:
+    title: "Build Web Visualization Component"
+    status: "pending"
+    description: "Reusable web component for rendering TaskDown graphs"
+
+  APP-2:
+    title: "Develop VS Code Extension"
+    status: "pending"
+    description: "Extension for editing and visualizing TaskDown in VS Code"
+
+  DOC-1:
+    title: "Write User Documentation"
+    status: "pending"
+    description: "Basic guides and tutorials for users"
+
+  # Phase 3 - Complex (Months)
+  APP-1:
+    title: "Build LLM+DAG Viewer Application"
+    status: "pending"
+    description: "Main application combining LLM chat interface with DAG visualization"
+
+  TOOLS-2:
+    title: "Create Format Converters"
+    status: "pending"
+    description: "Tools for converting between TaskDown and other formats"
+
+  CORE-2:
+    title: "Launch Project Website"
+    status: "pending"
+    description: "Full project website with documentation, tools, and examples"
+
+  DOC-2:
+    title: "Create Developer Documentation"
+    status: "pending"
+    description: "Comprehensive API documentation and integration guides"
+
+  # Phase 4 - Ongoing/Gradual
+  COMM-1:
+    title: "Set Up Community Channels"
+    status: "pending"
+    description: "Create and maintain community discussion spaces"
+
+  TEST-1:
+    title: "Develop Test Suite"
+    status: "pending"
+    description: "Comprehensive test cases for format and tools"
+
+  DEMO-1:
+    title: "Create Example Projects"
+    status: "pending"
+    description: "Sample projects demonstrating TaskDown usage"
+
+  INFRA-1:
+    title: "Set Up CI/CD Pipeline"
+    status: "pending"
+    description: "Automated testing and deployment infrastructure"
+
+relationships:
+  CORE-1:
+    blocks: ["SPEC-1"]
+  SPEC-1:
+    blocks: ["TOOLS-1", "UI-2", "DEV-1", "DEV-2"]
+  DEV-2:
+    blocks: ["UI-1", "TOOLS-2"]
+  UI-1:
+    blocks: ["APP-1"]
+  DEV-1:
+    blocks: ["TOOLS-2"]
+  UI-2:
+    blocks: ["APP-2"]
