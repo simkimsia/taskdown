@@ -11,9 +11,15 @@ tasks:
     description: "Write initial specification for the minimal viable format"
 
   TOOLS-1:
-    title: "Implement Basic Validator"
+    title: "A Typescript Implementation Basic Validator"
+    status: "in_progress"
+    description: "Create simple YAML validator for core format requirements"
+
+  IMPL-3:
+    title: "A python Implementation Basic Validator"
     status: "pending"
     description: "Create simple YAML validator for core format requirements"
+    similar: ["TOOLS-1"]
 
   IMPL-1:
     title: "Implement GitHub converter"
@@ -28,7 +34,7 @@ tasks:
 
   IMPL-2:
     title: "Add Python package setup"
-    status: "in_progress"
+    status: "pending"
     type: "task"
     description: |
       Set up Python package structure with proper configuration.
@@ -67,6 +73,38 @@ tasks:
     title: "Develop VS Code Extension"
     status: "pending"
     description: "Extension for editing and visualizing TaskDown in VS Code"
+
+  APP-3:
+    title: "Build Python CLI tool for Taskdown automation"
+    type: "task"
+    status: "pending"
+    description: |
+      Create a command-line interface for Taskdown operations with these core commands:
+
+      1. Validation:
+         - taskdown check <file> - Validate Taskdown blocks in markdown files
+         - taskdown fix <file> - Auto-fix common formatting issues
+
+      2. Task Management:
+         - taskdown list - Show all tasks and their status
+         - taskdown blocked - Show blocked tasks and their blockers
+         - taskdown next - Show actionable tasks (no blockers, status pending)
+
+      3. Reports:
+         - taskdown stats - Show task completion statistics
+         - taskdown cycle - Detect dependency cycles
+         - taskdown orphan - Find tasks with no relationships
+
+      4. Export/Convert:
+         - taskdown export <format> - Export to other task formats
+         - taskdown import <format> - Import from other task formats
+
+      Success criteria:
+      - Works as both CLI tool and importable Python package
+      - Comprehensive --help for each command
+      - Returns proper exit codes for scripting
+      - Handles multiple input files
+      - Supports both .md and .taskdown files"
 
   DOC-1:
     title: "Write User Documentation"
@@ -121,7 +159,8 @@ relationships:
   SPEC-1:
     blocks: ["TOOLS-1", "UI-2", "DEV-1", "DEV-2"]
   DEV-2:
-    blocks: ["UI-1", "TOOLS-2"]
+    blocked_by: ["TOOLS-1"]  # we need validator
+    blocks: ["UI-1", "APP-2"]
   UI-1:
     blocks: ["APP-1"]
   IMPL-1:
@@ -133,5 +172,5 @@ relationships:
   DEV-1:
     blocks: ["TOOLS-2"]
     subtasks: ["IMPL-1", "IMPL-2"]
-  UI-2:
-    blocks: ["APP-2"]
+  APP-3:
+    blocked_by: ["IMPL-1", "IMPL-2"]
