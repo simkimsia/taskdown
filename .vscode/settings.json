@@ -1,0 +1,13 @@
+{
+    "yaml.schemas": {
+        "./schema/v0.1/taskdown.json": [
+            "*.taskdown",
+            "tasks/**/*.taskdown",
+            "tasks/**/*.td",
+            "tasks/**/*.yml",
+            "tasks/**/*.yaml",
+            "tasks/**/*.txt"
+        ],
+        "file:///Users/kimsia/Projects/taskdown/schema/v0.1/taskdown.json": "file:///Users/kimsia/Projects/taskdown/tasks/current.taskdown"
+    }
+}

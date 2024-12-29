@@ -44,6 +44,14 @@
             "due": {
               "type": "string",
               "format": "date"
+            },
+            "similar": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Z][A-Z0-9\\-]+$"
+              },
+              "description": "List of task IDs that are similar to this task"
             }
           },
           "additionalProperties": false
