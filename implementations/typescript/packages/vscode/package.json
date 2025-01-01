@@ -1,6 +1,46 @@
 {
   "name": "@taskdown/vscode",
   "version": "0.1.0",
-  "main": "index.ts",
-  "private": true
+  "type": "commonjs",
+  "description": "VSCode extension for Taskdown format",
+  "main": "dist/extension.js",
+  "types": "dist/extension.d.ts",
+  "publisher": "taskdown",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "activationEvents": [
+    "onLanguage:taskdown"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "taskdown",
+      "extensions": [".taskdown"],
+      "aliases": ["Taskdown", "taskdown"]
+    }],
+    "commands": [{
+      "command": "taskdown.validate",
+      "title": "Validate Taskdown File"
+    }]
+  },
+  "scripts": {
+    "build": "tsup src/extension.ts --format cjs --external vscode --outDir dist",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@taskdown/validator": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
 }
