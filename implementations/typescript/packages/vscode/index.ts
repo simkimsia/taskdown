@@ -1,0 +1,1 @@
+// Re-export VS Code adapter functionality
